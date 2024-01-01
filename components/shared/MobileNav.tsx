@@ -6,7 +6,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
+
 import Image from "next/image";
+import NavItems from "./NavItems";
 
 export default function MobileNav() {
   return (
@@ -21,14 +24,15 @@ export default function MobileNav() {
             className="cursor-pointer"
           />
         </SheetTrigger>
-        <SheetContent>
-          <SheetHeader>
-            <SheetTitle>Are you sure absolutely sure?</SheetTitle>
-            <SheetDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </SheetDescription>
-          </SheetHeader>
+        <SheetContent className="flex flex-col gap-6 bg-white md:hidden">
+          <Image
+            alt="logo"
+            src="/assets/images/logo.svg"
+            width={128}
+            height={38}
+          />
+          <Separator className="border border-gray-50" />
+          <NavItems />
         </SheetContent>
       </Sheet>
     </nav>
