@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { createUser } from "@/lib/actions/user.action";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,7 +16,7 @@ export default function Home() {
               Book and learn helpful tips from 3.168+ mentors in world-class
               companies with our global community.
             </p>
-            <Button asChild size="lg" className="button w-full">
+            <Button asChild size="lg" className="button max-w-36">
               <Link href="#events">Explore Now</Link>
             </Button>
           </div>
