@@ -162,19 +162,19 @@ export async function POST(req: Request) {
   const { id } = evt.data;
   const eventType = evt.type;
 
-  if (eventType === "user.created") {
-    await createUser({
-      clerkId: "123456",
-      email: "joshuabamidele219@gmail.com",
-      username: "Joshardals",
-      firstName: "Joshua",
-      lastName: "Bamidele",
-      photo: "https://123456.com",
-    });
-  }
+  if (evt.type === "user.created") {
+    // await createUser({
+    //   clerkId: "123456",
+    //   email: "joshuabamidele219@gmail.com",
+    //   username: "Joshardals",
+    //   firstName: "Joshua",
+    //   lastName: "Bamidele",
+    //   photo: "https://123456.com",
+    // });
 
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
-  console.log("Webhook body:", body);
+    console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
+    console.log("Webhook body:", body);
+  }
 
   return new Response("", { status: 200 });
 }
