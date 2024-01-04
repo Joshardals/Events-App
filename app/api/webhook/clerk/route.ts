@@ -161,7 +161,7 @@ export async function POST(req: Request) {
   }
 
   // Get the ID and type
-  const { id } = evt.data;
+  // const { id } = evt.data;
   const eventType = evt.type;
 
   if (eventType === "user.created") {
@@ -179,15 +179,15 @@ export async function POST(req: Request) {
 
     const newUser = await createUser(user);
 
-    // if (newUser) {
-    //   await clerkClient.users.updateUserMetadata(id, {
-    //     publicMetadata: {
-    //       userId: newUser._id,
-    //     },
-    //   });
-    // }
+    if (newUser) {
+      await clerkClient.users.updateUserMetadata(id, {
+        publicMetadata: {
+          userId: newUser._id,
+        },
+      });
+    }
 
-    return NextResponse.json({ message: "OK", user: newUser });
+    return NextResponse.json({ message: "OK", user: newUser }, { status: 201 });
   }
 
   return new Response("", { status: 200 });
